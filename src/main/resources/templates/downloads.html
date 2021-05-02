@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{fragmentos :: imports-css(title='Downloads')}">
+        <title>title</title>
+    </head>
+    <body>
+        <div th:replace="~{fragmentos :: barramenu(pagina='Downloads')}"/>
+        <div class="container" style="margin-top: 20px">
+            <div class="card-header p-3 mb-​2 bg-secondary text-white"width="70">
+                <h4>DOWNLOADS REALIZADOS
+                    <a class="btn btn-primary float-right" th:href="@{~/downloads/download}" role="button">REALIZAR DOWNLOAD</a>
+                </h4>
+            </div>
+
+
+            <div class="card-body bg-dark text-white" th:each="download : ${downloads}">
+                <div class="card-body">
+
+                    <div class="card-text">
+                        <h4 th:text="${download.id}"></h4>
+                    </div>
+                    <div class="card-text">
+                        <span>MODALIDADE: </span>
+                        <span th:text="${download.material.modalidade}"></span>
+                    </div>
+                    <div class="card-text">
+                        <span>TÍTULO: </span>
+                        <span th:text="${download.material.titulo}"></span>
+                    </div>                    
+                    <div class="card-text">
+                        <span>QUANTIDADE: </span>
+                        <span th:text="${download.quantidade}"></span>
+                    </div>                    
+                    <div class="card-text">
+                        <span>ALUNO: </span>
+                        <span th:text="${download.aluno.nome}"></span>
+                    </div>                    
+                    <div class="card-text">
+                        <span>FUNCIONARIO RESPONSÁVEL: </span>
+                        <span th:text="${download.funcionario.nome}"></span>
+                    </div>
+                    <div class="card-text">
+                        <span>DATA: </span>
+                        <span th:text="${download.data.get(5)+'/'+(download.data.get(2)+1)+'/'+download.data.get(1)}"></span>
+                       
+                    </div>
+                </div>
+                <div class="card-text">
+                    <a th:href="@{'~/downloads/download/'+${download.id}}" class="btn btn-warning">EDITAR</a>
+                    <a th:href="@{'~/downloads/'+${download.id}+'/deletar'}" class="btn btn-danger" onclick="return confirm('Ação não reversível! Deseja esse download?')">DELETAR</a>
+                </div>                
+                
+                
+
+            </div>
+
+        </div>
+
+        <div th:replace="~{fragmentos :: imports-js}"/>
+    </body>
+</html>

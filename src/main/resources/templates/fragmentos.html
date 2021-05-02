@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:fragment="imports-css(title)">
+        <title th:text="${title}">Gerenciamento de Downloads</title>
+        <meta charset="UTF-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+        <link th:href="@{~/webjars/bootstrap/4.5.0/css/bootstrap.min.css}" rel="stylesheet"/>
+    </head>
+    <body class="bg-dark" >
+        <div th:fragment="barramenu(pagina)" >
+            <div class="container-fluid" style="padding-left: 0; padding-right: 0 ;" >
+
+                <nav class="navbar navbar navbar-expand-lg sticky-top navbar-dark bg-dark" >
+                    <a class="navbar-brand" href="/">
+                        <img th:src="@{~/imagens/downloadazul.jpg}" width="40" height="40" class="d-inline-block align-top"/>
+                            GERENCIAMENTO DE DOWNLOADS
+                            </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#textoNavbar" aria-controls="textoNavbar" aria-expanded="false" aria-label="Alterna navegação">
+                               <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="textoNavbar">
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item" th:classappend="${pagina == 'alunos' ? 'active' : ''}">
+                                       <a class="nav-link" th:href="@{~/alunos}">Alunos</a> 
+                                    </li>
+                                    <li class="nav-item" th:classappend="${pagina == 'downloads' ? 'active' : ''}" >
+                                       <a class="nav-link" th:href="@{~/downloads}" >Downloads</a> 
+                                    </li>
+                                    <li class="nav-item" th:classappend="${pagina == 'materiais' ? 'active' : ''}">
+                                       <a class="nav-link" th:href="@{~/materiais}">Materiais</a> 
+                                    </li>
+                                    <li class="nav-item" th:classappend="${pagina == 'funcionarios' ? 'active' : ''}" sec:authorize="hasRole ('ROLE_ADMIN')" >
+                                        <a class="nav-link" th:href="@{~/funcionarios}" >Funcionarios</a> 
+                                    </li>
+                                    <li class="nav-item" th:classappend="${pagina == 'meusdados' ? 'active' : ''}" >
+                                        <a class="nav-link" th:href="@{~/funcionarios/meusdados}">Meus Dados</a> 
+                                    </li>                                    
+                                    <li  >
+                                        <a sec:authorize="isAuthenticated()" class="btn btn-danger " th:href="@{~/logout}" role="button">SAIR</a>
+                                    </li>
+                                    
+                               </ul>
+
+                            </div>
+                    </div>
+
+                    <div th:fragment="mensagens">
+                        <div th:if="${not #strings.isEmpty(msgErros)}" class="alert alert-danger alert-dismissible fase show" role="alert">
+                            <p th:each="msg : ${msgErros}" th:text="${msg.getDefaultMessage()}"></p>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>            
+                        <div th:if="${not #strings.isEmpty(msgSucesso)}" class="alert alert-success alert-dismissible fade show" role="alert">
+                            <p th:each="m : ${msgSucesso}" th:text="${m}"></p>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+
+
+                    <div th:fragment="imports-js">
+                        <script th:src="@{~/webjars/jquery/3.5.1/jquery.min.js}"></script>
+                        <script th:src="@{~/webjars/bootstrap/4.5.0/js/bootstrap.bundle.min.js}"></script>
+                    </div>
+            </div>
+            </body>
+    </html>

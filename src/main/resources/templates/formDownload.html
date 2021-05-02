@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{fragmentos :: imports-css(title='Downloads')}">
+        <title>title</title>
+    </head>
+    <body>
+        <div th:replace="~{fragmentos :: barramenu(pagina='downloads')}"/>
+
+        <div class="container" style="margin-top: 20px; width: 60%">
+            <div class="card-header">
+                <h4>DOWNLOADS
+                    <a class="btn btn-primary float-right" th:href="@{~/downloads/download}" role="button">VOLTAR</a>
+                </h4>
+            </div>
+
+            <div th:replace="~{fragmentos :: mensagens}"></div>
+
+
+            <form th:object="${download}"  th:action="@{~/downloads/download/{id}(id=${download.id})}" method="post" class="card-body p-3 mb-​2 bg-secondary text-white">                
+                <input type="hidden" th:field="*{id}"/>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label>ALUNO(A):</label>
+                        <select class="form-control" th:field="*{aluno.id}">
+                            <option th:each="aluno : ${alunos}" th:text="${aluno.nome}" th:value="${aluno.id}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>FUNCIONÁRIO:</label>
+                        <select class="form-control" th:field="*{funcionario.id}">
+                            <option th:each="funcionario : ${funcionarios}" th:text="${funcionario.nome}" th:value="${funcionario.id}"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-7">
+                        <label>MATERIAL:</label>
+                        <select class="form-control" th:field="*{material.id}">
+                            <option th:each="material : ${materiais}" th:text="${material.titulo}+', ' + ${material.modalidade}" th:value="${material.id}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label>QUANTIDADE:</label>
+                        <input th:field="*{quantidade}" type="number" min="0" max="3" class="form-control"  required="required"/>
+                    </div>                                      
+                </div>        
+                <div class="form-row">  
+                    <div class="form-group col-md-3">
+                        <label>DATA:</label>
+                        <input type="date" th:field="*{data}" required="required"/>
+                    </div>                                    
+                    
+                </div>                 
+                <div class="card-footer">
+                    <input type="submit" class="btn btn-primary" value="SALVAR"/>
+                </div>
+            </form>
+
+        </div>
+
+        <div th:replace="~{fragmentos :: imports-js}"/>
+    </body>
+</html>
