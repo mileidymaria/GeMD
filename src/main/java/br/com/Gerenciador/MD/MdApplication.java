@@ -63,31 +63,31 @@ public class MdApplication implements CommandLineRunner {
 
             //Funcionario
             Funcionario f1 = new Funcionario();
-            f1.setNome("MILEIDY MARIA");
+            f1.setNome("TESTE Joyce Alves");
             f1.setPermissoes(List.of(p1,p2));
-            f1.setEmail("mileidymaria01@gmail.com");
-            f1.setCPF("131.364.587-70");
+            f1.setEmail("JoyceAlves@gmail.com");
+            f1.setCPF("918.361.440-08");
             f1.setEndereco(endereco1);
             f1.setTelefone("(22)99711-2112");
             f1.setSenha(new BCryptPasswordEncoder().encode("12345678"));
             funcionarioRepo.save(f1);	
 		
             Material m1 = new Material();
-            m1.setTitulo("JORNADA KIDS");
+            m1.setTitulo("FAIRY: THE GOOD BEAR");
             m1.setModalidade(TipoModalidadeEnum.KIDS);
             m1.setPreco(28.36);
             materialRepo.save(m1);
 
             Material m2 = new Material();
-            m2.setTitulo("JORNADA MASTER");
+            m2.setTitulo("A DROP IN THE OCEAN");
             m2.setModalidade(TipoModalidadeEnum.MASTER);
             m2.setPreco(56.78);
             materialRepo.save(m2);    
             
             Aluno a1 = new Aluno();
-            a1.setNome("SALVADORA RIBEIRO ELIAS");
-            a1.setEmail("mileidymaria@gmail.com");
-            a1.setCPF("984.854.407-06");
+            a1.setNome("TESTE JULIANA SOUZA");
+            a1.setEmail("jusouza@gmail.com");
+            a1.setCPF("729.941.620-40");
             a1.setEndereco(endereco2);
             a1.setTelefone("(22)99711-2512");
             a1.setMatricula("1234SALV");
