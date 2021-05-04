@@ -18,12 +18,14 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @SpringBootApplication
 public class MdApplication implements CommandLineRunner {
 
-    @Autowired
+    	@Autowired
     private AlunoRepository alunoRepo;
     @Autowired
     private FuncionarioRepository funcionarioRepo;
     @Autowired
-    private MaterialRepository materialRepo;	
+    private MaterialRepository materialRepo;
+    @Autowired
+    private DownloadRepository baixaMaterialRepo;	
     @Autowired
     private PermissaoRepository permissaoRepo;	    
     
