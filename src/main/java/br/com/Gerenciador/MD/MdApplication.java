@@ -18,14 +18,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @SpringBootApplication
 public class MdApplication implements CommandLineRunner {
 
-    	@Autowired
+    @Autowired
     private AlunoRepository alunoRepo;
     @Autowired
     private FuncionarioRepository funcionarioRepo;
     @Autowired
-    private MaterialRepository materialRepo;
-    @Autowired
-    private DownloadRepository baixaMaterialRepo;	
+    private MaterialRepository materialRepo;	
     @Autowired
     private PermissaoRepository permissaoRepo;	    
     
@@ -63,9 +61,9 @@ public class MdApplication implements CommandLineRunner {
 
             //Funcionario
             Funcionario f1 = new Funcionario();
-            f1.setNome("TESTE Joyce Alves");
+            f1.setNome("administrador");
             f1.setPermissoes(List.of(p1,p2));
-            f1.setEmail("JoyceAlves@gmail.com");
+            f1.setEmail("administrador@gemd.com");
             f1.setCPF("918.361.440-08");
             f1.setEndereco(endereco1);
             f1.setTelefone("(22)99711-2112");
