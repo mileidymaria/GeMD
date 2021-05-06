@@ -1,0 +1,6 @@
+Gerenciador de Downloads
+
+Link: https://gerenciador-de-downloads.herokuapp.com/login
+
+Login: admin@gemd.com
+Senha: 12345678

@@ -72,11 +72,11 @@
                 <div class="form-row" th:if="${funcionario.id==null}">
                     <div class="form-group col-md-4" >
                         <label for="senha">SENHA:</label>
-                        <input th:field="*{senha}" type="password" class="form-control" minlength="8" placeholder="senha" required="required"/>
+                        <input th:field="*{senha}" type="password" class="form-control" minlength="8" maxlength="8" placeholder="senha" required="required"/>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="senha">CONFIRMAR SENHA:</label>
-                        <input name="confirmarSenha" type="password" class="form-control" minlength="8" placeholder="confirmar senha"  required="required"/>
+                        <input name="confirmarSenha" type="password" class="form-control" minlength="8" maxlength="8" placeholder="confirmar senha"  required="required"/>
                     </div>               
                     
                 </div><br>

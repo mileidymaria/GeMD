@@ -7,7 +7,7 @@
         <div th:replace="~{fragmentos :: barramenu(pagina='Downloads')}"/>
         <div class="container" style="margin-top: 20px">
             <div class="card-header p-3 mb-​2 bg-secondary text-white"width="70">
-                
+                <a href="downloads.html"></a>
                 <h4>DOWNLOADS REALIZADOS
                     <a class="btn btn-primary float-right" th:href="@{~/downloads/download}" role="button">REALIZAR DOWNLOAD</a>
                 </h4>
@@ -28,6 +28,10 @@
                         <span>TÍTULO: </span>
                         <span th:text="${download.material.titulo}"></span>
                     </div>                    
+                    <div class="card-text">
+                        <span>ARQUIVO: </span>
+                        <a th:href="@{'~/files/pdf/'+${download.material.arquivo}}" target="_blank">download</a>
+                    </div> 
                     <div class="card-text">
                         <span>QUANTIDADE: </span>
                         <span th:text="${download.quantidade}"></span>

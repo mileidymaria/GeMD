@@ -36,12 +36,12 @@
                                     <li class="nav-item" th:classappend="${pagina == 'meusdados' ? 'active' : ''}" >
                                         <a class="nav-link" th:href="@{~/funcionarios/meusdados}">Meus Dados</a> 
                                     </li>                                    
-                                    <li  >
-                                        <a sec:authorize="isAuthenticated()" class="btn btn-danger " th:href="@{~/logout}" role="button">SAIR</a>
-                                    </li>
+
                                     
                                </ul>
-
+                                <li  >
+                                    <a sec:authorize="isAuthenticated()" class="btn btn-danger " th:href="@{~/logout}" role="button">SAIR</a>
+                                </li>
                             </div>
                     </div>
 

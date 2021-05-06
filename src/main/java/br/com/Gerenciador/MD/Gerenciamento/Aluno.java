@@ -11,14 +11,12 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 
 @Entity
 public class Aluno extends Pessoa {
 
 
-	@Column(length = 8, unique = true, updatable = true)
-        @Pattern(regexp = "[a-zA-Z0-9]+", message = "Padrão deve ser obedecido.")        
+	@Column(length = 8, unique = true, updatable = true)       
 	@LoginValidation(message = "Matrícula obrigatória!")
 	private String matricula;
 
